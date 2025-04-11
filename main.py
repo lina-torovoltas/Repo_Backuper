@@ -8,6 +8,7 @@ from datetime import datetime
 
 
 
+# Here you can configure the behavior of the backuper:
 REPOS_FILE = "repos.txt"
 HASHES_FILE = "hashes.json"
 BACKUP_DIR = "backups"
@@ -17,17 +18,20 @@ last_hashes = {}
 
 
 
+# Loads hashes of recent commits from a file
 def load_hashes():
     if os.path.exists(HASHES_FILE):
         with open(HASHES_FILE, "r") as f:
             return json.load(f)
     return {}
 
+# Saves hashes of recent commits to a file
 def save_hashes():
     with open(HASHES_FILE, "w") as f:
         json.dump(last_hashes, f, indent=2)
 
 
+# Gets a list of repositories from a file that need to be backuped
 def get_repo_list():
     if not os.path.exists(REPOS_FILE):
         print("[!] repos.txt not found. Exiting.")
@@ -39,6 +43,8 @@ def get_repo_list():
         exit()
     return repos
 
+
+# Gets the full name of the repository, which includes the creator's name and the repository name itself
 def get_full_repo_name(repo_url):
     parts = repo_url.rstrip("/").split("/")
     if len(parts) >= 2:
@@ -47,6 +53,7 @@ def get_full_repo_name(repo_url):
         return f"{username}/{reponame}"
     return repo_url
 
+# Gets the hash of the last repository commit
 def get_repo_hash(repo_url):
     try:
         output = subprocess.check_output(
@@ -57,6 +64,8 @@ def get_repo_hash(repo_url):
     except subprocess.CalledProcessError:
         return None
 
+# It compares the hash of the last commit from the repository with the hash of the last commit from the file, 
+# And if they do not match, it backups, if they do match, it does nothing
 def backup_repo(repo_url):
     repo_hash = get_repo_hash(repo_url)
     if not repo_hash:
@@ -99,6 +108,7 @@ def backup_repo(repo_url):
             shutil.rmtree(TEMP_DIR)
 
 
+# Main Backuper's cycle
 def main():
     os.makedirs(BACKUP_DIR, exist_ok=True)
     global last_hashes
