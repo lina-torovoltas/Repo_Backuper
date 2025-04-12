@@ -23,7 +23,7 @@ https://gitlab.com/username/repository3
 
 1. Clone the repository.
 2. Configure your repositories in the repos.txt file.
-3. Run the Repo Buckuper:
+3. And run the Repo Buckuper:
   ```bash
   $ python3 main.py
   [∞] [15:30:25] Checking 3 repositories...
