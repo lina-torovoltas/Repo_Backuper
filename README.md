@@ -20,27 +20,16 @@
 ## Installation
 
 1. Clone this repository.
-2. Make sure Python 3 is installed.
-3. Install any required dependencies (if needed).
-
-## Configuration
-
-Before running the program, create a `repos.txt` file in the project directory containing the list of repository URLs to track.
-
-**Example:**
-```
-https://github.com/username/repository1
-https://github.com/username/repository2
-https://gitlab.com/username/repository3
-```
-
-## Usage
-
-Simply run the program with Python:
-
-```
-python3 main.py
-```
+2. Create a `repos.txt` file in the project directory containing the list of repository URLs to track, example:
+    ```
+    https://github.com/username/repository1
+    https://github.com/username/repository2
+    https://gitlab.com/username/repository3
+    ```
+3. And simply run the program with Python:
+    ```
+    python3 main.py
+    ```
 
 Example output:
 
