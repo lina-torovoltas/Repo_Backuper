@@ -1,7 +1,8 @@
 ## Repo Backuper
 
-![License](https://img.shields.io/github/license/lina-torovoltas/Repo_Backuper)
-![Version](https://img.shields.io/github/v/release/lina-torovoltas/Repo-Backuper)</br>
+![Language](https://img.shields.io/badge/language%20-%20Python-blue)
+![License](https://img.shields.io/github/license/lina-torovoltas/KGB_Bot-telegram)</br>
+
 **Repo Backuper** is a Python tool that monitors Git repositories and automatically creates backups when changes are detected.
 
 ## Features
@@ -19,12 +20,19 @@
 
 ## Installation
 
-1. Clone this repository.
+1. Clone this repository and prepare your environment:
+   ```bash
+    git clone https://github.com/lina-torovoltas/Repo_Backuper
+    cd Repo_Backuper
+    python3 -m venv env
+    source env/bin/activate
+   ```
 2. Create a `repos.txt` file in the project directory containing the list of repository URLs to track, example:
     ```
-    https://github.com/username/repository1
-    https://github.com/username/repository2
-    https://gitlab.com/username/repository3
+    https://github.com/username1/repository1
+    https://github.com/username2/repository2
+    https://gitlab.com/username/repository
+    https://codeberg.org/username/repository
     ```
 3. And simply run the program with Python:
     ```
