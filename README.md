@@ -26,6 +26,7 @@
     cd Repo_Backuper
     python3 -m venv env
     source env/bin/activate
+    chmod +x start.sh
    ```
 2. Create a `repos.txt` file in the project directory containing the list of repository URLs to track, example:
     ```
@@ -34,9 +35,9 @@
     https://gitlab.com/username/repository
     https://codeberg.org/username/repository
     ```
-3. And simply run the program with Python:
+3. And run:
     ```
-    python3 main.py
+    ./start.sh
     ```
 
 Example output:
